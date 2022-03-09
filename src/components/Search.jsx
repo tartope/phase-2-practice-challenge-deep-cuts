@@ -1,12 +1,19 @@
 import React from 'react'
 
-function Search() {
+function Search({ handleSearchTracks }) {
+
+  function handleSearchChange(event) {
+    event.preventDefault();
+    const searchText = event.target.value
+    handleSearchTracks(searchText)
+  }
+
   return (
     <div className="search">
         <input
         type="text"
         placeholder="Search your Tracks"
-        onChange={() => console.log("Searching...")}
+        onChange={handleSearchChange}
         />
         <i className="">🔎</i>
 
